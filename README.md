@@ -152,8 +152,7 @@ The `okta-spring-boot-starter` auto-configures JWT validation against the issuer
 
 ## Related Samples
 
-- [okta-spring-boot-app](https://github.com/okta-samples/okta-spring-boot-app) — a standalone browser-facing web app sample. It runs independently of this API and doesn't call it.
-- [okta-spring-boot-sample](https://github.com/okta-samples/okta-spring-boot-sample) — app and API combined in one project.
+- [okta-spring-boot-app](https://github.com/okta-samples/okta-spring-boot-sample-app) — a standalone browser-facing web app sample. It runs independently of this API and doesn't call it.
 
 ## Learn More
 
