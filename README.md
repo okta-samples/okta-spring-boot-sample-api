@@ -1,1 +1,1 @@
-# okta-sprin-booth-sample-api
+# okta-spring-boot-sample-api
