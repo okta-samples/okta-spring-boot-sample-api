@@ -49,8 +49,7 @@ The API starts on port **8081**.
 
 ## Get an Access Token
 
-You need an access token to call the protected endpoints. This API has no login UI of its own — get a token one of two ways:
-
+You need an access token to call the protected endpoints. This API has no login UI of its own, so you need to get a token yourself:
 
 ### A real user's token (Authorization Code + PKCE, no app required)
 
@@ -148,11 +147,10 @@ Two layers of authorization:
 
 Method-level checks require `@EnableMethodSecurity` on the configuration class. Without that annotation `@PreAuthorize` is **silently ignored** and the endpoint is left unprotected.
 
-The `okta-spring-boot-starter` auto-configures JWT validation against the issuer's JWKS endpoint and checks the `aud` claim against `okta.oauth2.audience`.
 
 ## Related Samples
 
-- [okta-spring-boot-app](https://github.com/okta-samples/okta-spring-boot-sample-app) — a standalone browser-facing web app sample. It runs independently of this API and doesn't call it.
+- [okta-samples](https://github.com/okta-samples/) — Explore the other samples from this and build with Okta and other frameworks.
 
 ## Learn More
 
