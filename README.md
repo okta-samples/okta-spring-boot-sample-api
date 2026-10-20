@@ -11,6 +11,8 @@ Prerequisites
 - An Okta org with a **custom authorization server** (the `default` one works). The org authorization server cannot issue access tokens that third-party APIs can validate.
 - A custom scope named `messages.read` on that authorization server, and an access policy with a rule that grants it. Without a policy, no tokens are issued.
 
+This API has no login page of its own. To use it, run it with a front-end that signs the user in and sends the access token to the API. Use [okta-spring-boot-sample-app](https://github.com/okta-samples/okta-spring-boot-sample-app), which is set up to call this API.
+
 Getting Started
 ---------------
 
@@ -26,15 +28,9 @@ set -a && source .env && set +a
 ./mvnw spring-boot:run
 ```
 
-Get an access token from your authorization server using any OAuth 2.0 client (for example, the authorization code flow with PKCE for a user). Then call the API with it:
+Test the API
+------------
 
-```bash
-# Any valid token
-curl -H "Authorization: Bearer TOKEN" http://localhost:8081/api/hello
-
-# Any valid token: returns the token claims, or 401 without a valid token
-curl -H "Authorization: Bearer TOKEN" http://localhost:8081/api/whoami
-
-# Requires the messages.read scope: returns 403 if the scope is missing
-curl -H "Authorization: Bearer TOKEN" http://localhost:8081/api/messages
-```
+1. Keep the API running on port 8081.
+2. In a second terminal, run [okta-spring-boot-sample-app](https://github.com/okta-samples/okta-spring-boot-sample-app) using the same `ISSUER`.
+3. Open `http://localhost:8080`, sign in, and click **Messages**. The app calls `/api/messages` with your access token and shows the response.
